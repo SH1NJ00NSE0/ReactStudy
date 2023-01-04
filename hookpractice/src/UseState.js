@@ -1,7 +1,6 @@
-import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 
-function App() {
+function UseState() {
 	const init = () => {
 		console.log("init~~");
 		return ["홍길동", "김석진"];
@@ -36,4 +35,4 @@ function App() {
 	);
 }
 
-export default App;
+export default UseState;

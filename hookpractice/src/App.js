@@ -1,10 +1,12 @@
 import './App.css';
-import UseState from './UseState';
+import UseEffect1 from './Hooks/UseEffect1';
+import UseState from './Hooks/UseState';
 
 function App() {
   return (
     <div>
-      <UseState></UseState>
+      {/* <UseState></UseState> */}
+      <UseEffect1></UseEffect1>
     </div>
   );
 }

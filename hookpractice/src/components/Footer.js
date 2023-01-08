@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../Contexts/ThemeContext";
 
-function Footer({ isDark, setIsDark }) {
+const Footer = () => {
+	const { isDark, setIsDark } = useContext(ThemeContext);
+
 	const toggleTheme = () => {
 		setIsDark(!isDark);
 	};
-	
+
 	return (
 		<footer
 			className="footer"
@@ -16,6 +19,6 @@ function Footer({ isDark, setIsDark }) {
 			</button>
 		</footer>
 	);
-}
+};
 
 export default Footer;

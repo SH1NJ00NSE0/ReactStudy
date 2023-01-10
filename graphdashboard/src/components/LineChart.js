@@ -1,13 +1,7 @@
 import * as d3 from "d3";
 import { useEffect, useRef } from "react";
 
-const graphInfos = [
-	{ key: "평균최고기온(°C)", color: "red" },
-	{ key: "평균최저기온(°C)", color: "blue" },
-	{ key: "평균기온(°C)", color: "black" },
-];
-
-const LineChart = () => {
+const LineChart = ({ graphInfos, data }) => {
 	const canvasRef = useRef();
 
 	useEffect(() => {
@@ -24,13 +18,13 @@ const LineChart = () => {
 			graphInfos.forEach(info => {
 				const xFunc = (_, index) => index * 30;
 				const yFunc = yData => yScaleFunc(40 - yData[info.key]);
-				const lineGenerator1 = d3.line().x(xFunc).y(yFunc);
+				const lineGenerator = d3.line().x(xFunc).y(yFunc);
 
 				svg.append("path")
 					.attr("stroke", info.color)
 					.attr("stroke-width", 2)
 					.attr("fill", "none")
-					.attr("d", lineGenerator1(data));
+					.attr("d", lineGenerator(data));
 			});
 		});
 	}, []);

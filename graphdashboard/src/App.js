@@ -4,8 +4,8 @@ import SVG from "./components/SVG";
 function App() {
 	return (
 		<div>
-			<SVG />
-      {/* <E1/> */}
+			{/* <SVG /> */}
+      <E1/>
 		</div>
 	);
 }

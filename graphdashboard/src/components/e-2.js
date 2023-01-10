@@ -2,6 +2,18 @@ import * as d3 from "d3";
 import { transition } from "d3";
 import { useEffect, useRef } from "react";
 
+const getMaxValueIndex = arr => {
+	let currentMaxValue = -1;
+	let maxIdx = 0;
+	arr.forEach((item, index) => {
+		if (currentMaxValue < item) {
+			currentMaxValue = item;
+			maxIdx = index;
+		}
+	});
+	return maxIdx;
+};
+
 const E2 = () => {
 	const canvasRef = useRef();
 	const data = [100, 10, 30, 50, 110, 80, 40];
@@ -30,9 +42,12 @@ const E2 = () => {
 				.attr("x", index * 30)
 				.attr("y", 140 - item)
 				.text(item);
-			
-			d3.select('#rect-4').style("fill","blue");
 		});
+		d3.select(`#rect-${getMaxValueIndex(data)}`)
+			.transition()
+			.duration(500)
+			.style("fill", "blue")
+			.delay(500);
 	}, []);
 
 	return <div ref={canvasRef}></div>;

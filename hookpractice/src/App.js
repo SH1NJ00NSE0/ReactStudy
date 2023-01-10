@@ -1,4 +1,3 @@
-import './App.css';
 import UseContext from './Hooks/UseContext';
 import UseEffect1 from './Hooks/UseEffect1';
 import UseEffect2 from './Hooks/UseEffect2';
